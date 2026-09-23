@@ -1,0 +1,24 @@
+name: Avica
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Start Building
+    runs-on: windows-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Download Repository Files
+        uses: actions/checkout@v6
+
+      - name: Downloading & Installing Essentials
+        shell: cmd
+        run: |
+          call Downloads.bat
+
+      - name: Show Website
+        shell: cmd
+        run: |
+          call show.bat
